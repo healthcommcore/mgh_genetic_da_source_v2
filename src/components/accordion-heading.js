@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
+import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import AccordionContext from "react-bootstrap/AccordionContext";
 import Card from "react-bootstrap/Card";
-import { useAccordionToggle } from "react-bootstrap/AccordionToggle";
 
 const AccordionHeading = ({ heading, subheading, eventKey, callback }) => {
-  const currentEventKey = useContext(AccordionContext);
-  const decoratedOnClick = useAccordionToggle(
+  const { activeEventKey } = useContext(AccordionContext);
+  const decoratedOnClick = useAccordionButton(
     eventKey,
     () => callback && callback(eventKey),
   );
-  const isCurrentEventKey = currentEventKey === eventKey;
+  const isCurrentEventKey = activeEventKey === eventKey;
   const iconDisplay = getIconDisplay(isCurrentEventKey);
 
   return (
