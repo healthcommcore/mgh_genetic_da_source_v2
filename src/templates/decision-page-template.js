@@ -2,10 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { graphql } from "gatsby";
 import Header from "../components/header";
-import GoogleTranslate from "../components/google-translate";
+//import GoogleTranslate from "../components/google-translate";
 import Layout from "../components/layout";
 import PageTitle from "../components/page-title";
-import PageBody from "../components/page-body";
+//import PageBody from "../components/page-body";
 import NavContainer from "../containers/nav-container";
 import NotesArea from "../components/notes-area";
 import ButtonsContainer from "../containers/buttons-container";
@@ -25,10 +25,13 @@ const DecisionPageTemplate = ({ data, cancerType }) => {
     <Layout className={ `decision-page ${ cancerType }` }>
       <Header />
       <NavContainer />
+{/*
 			<GoogleTranslate />
+*/}
       <PageTitle>
         { node.title }
       </PageTitle>
+{/*
       <PageBody
         page={ node.path.alias }
         video={ node.relationships }
@@ -37,6 +40,7 @@ const DecisionPageTemplate = ({ data, cancerType }) => {
         complexContent={ node.relationships }
         outro={ node.field_outro_text }
       />
+*/}
       <NotesArea />
       <ButtonsContainer isOrphan={ node.field_is_orphan_page } />
       <Footer />
