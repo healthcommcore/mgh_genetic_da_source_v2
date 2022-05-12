@@ -22,7 +22,7 @@ const VideoContent = ({ videoArr, caption, placeholder, cancer }) => {
   if (placeholder && videoArr.length === 0) {
     return (
       <LeftMarginContainer>
-        <img className="img-fluid" src={ process.env.GATSBY_SITE_URL + placeholder.uri.url } />
+        <img className="img-fluid" src={ process.env.DRUPAL_API_URL + placeholder.uri.url } />
         <Card bsPrefix="card video-caption">
           <Card.Body>
             <Card.Text>
@@ -38,9 +38,9 @@ const VideoContent = ({ videoArr, caption, placeholder, cancer }) => {
 
   return (video) && (
     <LeftMarginContainer>
-      <video controls poster={ process.env.GATSBY_SITE_URL + placeholder.uri.url }>
+      <video controls poster={ process.env.DRUPAL_API_URL + placeholder.uri.url }>
         <source 
-          src={ process.env.GATSBY_SITE_URL + video }
+          src={ process.env.DRUPAL_API_URL + video }
           type="video/mp4"
         />
       </video>

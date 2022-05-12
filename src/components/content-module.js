@@ -31,7 +31,6 @@ const ContentModule = ({ content, cancerType }) => {
             correctCancer = (cancerName === cancerType);
           }
           const segments = module.relationships.field_content_segment;
-          console.log(module, correctCancer);
           return (!hasCancerName || correctCancer) && (
             <Card key={ i } bsPrefix="card content-module">
               <Card.Body>

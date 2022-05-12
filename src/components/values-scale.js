@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { setValue } from "../actions";
+import { urlify } from "../helpers";
 import Card from "react-bootstrap/Card";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import ValuesScaleLabels from "./values-scale-labels";
 
 const SCALE_NUM = [1, 2, 3, 4, 5, 6, 7];
+
 
 const mapStateToProps = (state) => {
   return {
@@ -24,7 +26,9 @@ const mapDispatchToProps = (dispatch) => {
 
 
 const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue, values }) => {
-  const name = "scale-" + num;
+  const [checked, setChecked] = useState(false);
+  const name = `scale-${num}`;
+  //const name = "scale-" + num;
   return (
     <div className="values-scale">
     <Card>
@@ -35,8 +39,8 @@ const ValuesScale = ({ num, heading, leftLabel, rightLabel, setValue, values }) 
         { SCALE_NUM.map( (sn, i) => {
           return (
             <ToggleButton 
+              id={ `${urlify(heading)}-${i}` }
               key={i} 
-              name={ name } 
               value={ sn } 
               variant="value"
               className="rounded-circle"

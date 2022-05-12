@@ -284,7 +284,7 @@ video {
   z-index: 50;
 }
 
-.btn.btn-value.active {
+.btn-check:checked + .btn.btn-value {
   z-index: 50;
   background: $btn-bkgrd;
   border-color: $btn-bkgrd;

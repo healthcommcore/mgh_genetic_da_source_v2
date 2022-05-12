@@ -47,9 +47,9 @@ class EmailSubmitter extends Component {
       notes
     };
     const json = JSON.stringify(payload);
-    fetch("https://api.mghcancergeneticsda.com/sendmail.php",
+    //fetch("https://api.mghcancergeneticsda.com/sendmail.php",
     //fetch("http://api.mghda.hccstaging.org/sendmail.php",
-    //fetch("http://mghdaemail.dr809.test/sendmail.php",
+    fetch("http://apiv2.mghda.hccdev.org/sendmail.php",
       {
         method: "post",
         headers: { 
