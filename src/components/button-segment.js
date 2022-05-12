@@ -36,7 +36,7 @@ const ButtonSegment = ({ content, setNewCurrent, triggerModal }) => {
           </div>
         </Col>
         <Col sm={ 7 }>
-          <Row bsPrefix="row align-items-center">
+          <Row bsPrefix="flex-nowrap row align-items-center">
             <div className="flex-fill">
               <img className="img-fluid" src={ Arrow } alt="arrow" />
             </div>
