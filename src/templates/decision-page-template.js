@@ -19,7 +19,8 @@ const mapStateToProps = (state) => {
 }
 
 const DecisionPageTemplate = ({ data, cancerType }) => {
-  const node = data.nodeDecisionAidPage;
+  console.log({data});
+  const node = data.content;
 
   return (
     <Layout className={ `decision-page ${ cancerType }` }>
@@ -50,8 +51,16 @@ const DecisionPageTemplate = ({ data, cancerType }) => {
 
 
 export const query = graphql`
-  query($id: String!) {
-    nodeDecisionAidPage(id: {eq: $id} ) {
+  query($drupal_id: Int, $lang: String!) {
+    translations: allNodeDecisionAidPage(filter: { drupal_internal__nid: { eq: $drupal_id } }) {
+      nodes {
+        path {
+          alias
+        }
+        langcode
+      }
+    }
+    content: nodeDecisionAidPage(drupal_internal__nid: {eq: $drupal_id}, langcode: { eq: $lang } ) {
       title
       field_is_orphan_page
       field_video_caption

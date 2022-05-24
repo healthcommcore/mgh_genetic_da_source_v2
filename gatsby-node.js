@@ -16,6 +16,8 @@ exports.createPages = ({ graphql, actions }) => {
         edges {
           node {
             id
+            langcode
+            drupal_internal__nid
             path {
               alias
             }
@@ -26,6 +28,8 @@ exports.createPages = ({ graphql, actions }) => {
         edges {
           node {
             id
+            langcode
+            drupal_internal__nid
             path {
               alias
             }
@@ -40,6 +44,8 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/decision-page-template.js`),
         context: {
           id: node.id,
+          lang: node.langcode,
+          drupal_id: node.drupal_internal__nid,
         },
       });
     })

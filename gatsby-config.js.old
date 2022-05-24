@@ -15,22 +15,27 @@ module.exports = {
     `gatsby-transformer-sharp`, 
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-drupal-graphql`,
+      resolve: `gatsby-source-drupal`,
       options: {
-        drupal: {
-          url: `http://apiv2.mghda.dr809.test`,
-          auth: {
-            username: process.env.DRUPAL_AUTH_USERNAME,
-            password: process.env.DRUPAL_AUTH_PASSWORD
-          }
-        }
-      }
+        // TEST
+        //baseUrl: `http://api.mghda.dr809.test`,
         // DEV
-        //baseUrl: process.env.DRUPAL_API_URL,
+        baseUrl: process.env.DRUPAL_API_URL,
         // STAGE
         //baseUrl: `http://api.mghda.hccstaging.org`,
         // PROD
         //baseUrl: `https://api.mghcancergeneticsda.com`,
+        languageConfig: {
+          defaultLanguage: `en`,
+          enabledLanguages: [`en`,`es`],
+          translatableEntities: [`node--article`,`node--decision_aid_page`],
+          nonTranslatableEntities: [`file--file`]
+        },
+        basicAuth: {
+          username: process.env.DRUPAL_AUTH_USERNAME,
+          password: process.env.DRUPAL_AUTH_PASSWORD
+        }
+      }
     }
   ]
 };

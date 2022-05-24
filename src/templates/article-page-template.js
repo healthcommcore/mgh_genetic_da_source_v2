@@ -18,8 +18,8 @@ const ArticlePageTemplate = ({ data }) => {
 
 
 export const query = graphql`
-  query($id: String!) {
-    nodeArticle(id: {eq: $id} ) {
+  query($drupal_id: Int, $lang: String!) {
+    nodeArticle(drupal_internal__nid: {eq: $drupal_id}, langcode: {eq: $lang} ) {
       title
       body {
         processed
