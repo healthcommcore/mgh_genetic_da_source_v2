@@ -28,6 +28,21 @@ module.exports = {
         basicAuth: {
           username: process.env.DRUPAL_AUTH_USERNAME,
           password: process.env.DRUPAL_AUTH_PASSWORD
+        },
+        languageConfig: {
+          defaultLanguage: `en`,
+          enabledLanguages: [`en`, `es`],
+          translatableEntities: [
+            `node--article`, 
+            `node--decision_aid_page`,
+            `paragraph--accordion`,
+            `paragraph--button_with_text`,
+            `paragraph--content_module`,
+            `paragraph--content_module_segment`,
+            `paragraph--multiple_choice_option`,
+            `paragraph--value`
+          ],
+          nonTranslatableEntities: [`file--file`],
         }
       }
     }
