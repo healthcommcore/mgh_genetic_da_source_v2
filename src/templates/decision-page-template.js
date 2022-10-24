@@ -50,8 +50,14 @@ const DecisionPageTemplate = ({ data, cancerType }) => {
 
 
 export const query = graphql`
-  query($id: String!) {
-    nodeDecisionAidPage(id: {eq: $id} ) {
+  query(
+    $drupal_internal__nid: Int!,
+    $langcode: String!
+  ) {
+    nodeDecisionAidPage(
+      drupal_internal__nid: {eq: $drupal_internal__nid},
+      langcode: {eq: $langcode} 
+    ) {
       title
       field_is_orphan_page
       field_video_caption
