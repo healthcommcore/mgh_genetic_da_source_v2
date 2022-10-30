@@ -18,7 +18,6 @@ import { navigate, graphql } from "gatsby";
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (values) => {
-      console.log(values);
       if (Object.entries(values).length === 3) {
         dispatch( setUser(values) );
         //trackUser(values.userid);

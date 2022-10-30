@@ -2,6 +2,7 @@ import { abbreviate } from "../helpers";
 
 const initialState = { 
   userid: "", 
+  lang: "en",
   cancerType: "",
   site: "",
   notes: "",
@@ -24,6 +25,8 @@ const user = (state = initialState, action) => {
   switch(action.type) {
     case `SET_USER`:
       return Object.assign({}, state, { ...action.userInfo });
+    case `SET_LANG`:
+      return Object.assign({}, state, { ...action.lang });
     case `SET_NOTES`:
       stateCopy.notes = action.notes;
       return Object.assign({}, state, { ...stateCopy });

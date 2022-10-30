@@ -83,11 +83,17 @@ const logout = () => {
   }
 }
 
+const setLang = () => {
+  return {
+    type: `SET_LANG`
+  }
+}
 
 export { 
   setUser, 
   setNotes,
   setValue, 
+  setLang, 
   setTestInput, 
   initializeMenu, 
   advance, 

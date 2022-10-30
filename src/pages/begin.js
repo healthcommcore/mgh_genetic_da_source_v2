@@ -4,8 +4,10 @@ import { initializeMenu } from "../actions";
 import { graphql } from "gatsby";
 import NavButton from "../components/nav-button";
 import LargeHeader from "../components/large-header";
+import LanguageSwitcher from "../components/language-switcher";
 import Footer from "../components/footer";
 import ContentContainer from "../components/content-container";
+import { setLang } from "../actions";
 import { useDrupalMenu } from "../helpers/use-drupal-menu";
 import { setHTML } from "../helpers";
 
@@ -19,11 +21,15 @@ const mapDispatchToProps = (dispatch) => {
 
 const Begin = ({ data, initializeMenu }) => {
   const drupalMenu = useDrupalMenu();
-  const fields = data.nodeArticle;
+  const fields = data.english;
   return (
     <div onLoad={ initializeMenu(drupalMenu) }>
       <LargeHeader />
       <ContentContainer>
+        <LanguageSwitcher
+         englishPath=""
+         spanishPath=""
+        />
         <div className="begin-end-content">
           { setHTML(fields.body.processed) }
         </div>
@@ -38,12 +44,32 @@ const Begin = ({ data, initializeMenu }) => {
 
 export const query = graphql`
   query BeginQuery {
-    nodeArticle(drupal_internal__nid: {eq: 20} ) {
-      title
-      body {
-        processed
+    english: 
+      nodeArticle(
+        drupal_internal__nid: {eq: 20} 
+        langcode: {eq: "en"}
+      ) {
+        title
+        body {
+          processed
+        }
+        path {
+          alias
+        }
       }
-    }
+    spanish: 
+      nodeArticle(
+        drupal_internal__nid: {eq: 20} 
+        langcode: {eq: "es"}
+      ) {
+        title
+        body {
+          processed
+        }
+        path {
+          alias
+        }
+      }
   }
 `
 export default connect(null, mapDispatchToProps)(Begin);
