@@ -1,31 +1,40 @@
 import React from "react";
+import { Link } from "gatsby";
+import Button from "react-bootstrap/Button";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import { ucFirst } from "../helpers";
 
 const LanguageSwitcher = ({ englishPath, spanishPath }) => {
+  console.log({ englishPath, spanishPath });
   const languages = {
-    en: "english",
-    es: "spanish"
+    english: englishPath,
+    spanish: spanishPath
   }
   return (
     <div className="language-switcher d-flex justify-content-end">
-      <ToggleButtonGroup
-        type="radio"
-        className=""
-        name="language-switcher"
-      >
-      { Object.keys(languages).map( (langCode) => {
+      { Object.keys(languages).map( (lang) => {
         return (
-          <ToggleButton
-            id={`lang-${languages[langCode]}`}
-            value={ langCode }
+          <Button
+            as={ Link }
+            id={`lang-${lang}`}
+            value={ lang }
+            to={ languages[lang] }
           >
-            { ucFirst(languages[langCode]) }
-          </ToggleButton>
+            { ucFirst(lang) }
+          </Button>
         );
+        {/*
+          <ToggleButton
+            as={ Link }
+            id={`lang-${lang}`}
+            value={ lang }
+            to={ languages[lang] }
+          >
+            { ucFirst(lang) }
+          </ToggleButton>
+        */}
       })}
-      </ToggleButtonGroup>
     </div>
   );
 }

@@ -15,6 +15,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     initializeMenu: (drupalMenu) => {
       dispatch( initializeMenu(drupalMenu) );
+    },
+    setLang: (lang) => {
+      dispatch( setLang(lang) );
     }
   }
 }
@@ -27,8 +30,8 @@ const Begin = ({ data, initializeMenu }) => {
       <LargeHeader />
       <ContentContainer>
         <LanguageSwitcher
-         englishPath=""
-         spanishPath=""
+         englishPath={ data.english.path.alias }
+         spanishPath={ data.spanish.path.alias }
         />
         <div className="begin-end-content">
           { setHTML(fields.body.processed) }

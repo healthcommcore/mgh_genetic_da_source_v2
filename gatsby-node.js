@@ -49,6 +49,17 @@ exports.createPages = ({ graphql, actions }) => {
         },
       });
     })
+    result.data.allNodeArticle.edges.forEach( ({ node }) => {
+      createPage({
+        path: node.path.alias,
+        component: path.resolve(`./src/templates/article-page-template.js`),
+        context: {
+          id: node.id,
+          drupal_internal__nid: node.drupal_internal__nid,
+          langcode: node.langcode,
+        },
+      });
+    })
   })
 }
 
