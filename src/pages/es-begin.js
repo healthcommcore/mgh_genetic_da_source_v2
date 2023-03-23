@@ -13,7 +13,7 @@ import { setHTML } from "../helpers";
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    initializeMenu: (drupalMenu ) => {
+    initializeMenu: (drupalMenu) => {
       dispatch( initializeMenu(drupalMenu) );
     },
     setLang: (lang) => {
@@ -23,22 +23,24 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Begin = ({ data, initializeMenu }) => {
-  const drupalMenu = useDrupalMenu("en");
-  const fields = data.english;
+  const drupalMenu = useDrupalMenu('es');
+  //console.log( drupalMenu)
+  const fields = data.spanish;
+  data.spanish.path.alias = '/es-begin'
   return (
     <div onLoad={ initializeMenu(drupalMenu) }>
       <LargeHeader />
       <ContentContainer>
         <LanguageSwitcher
          englishPath={ data.english.path.alias }
-         spanishPath={ '/es-begin' }
+         spanishPath={ data.spanish.path.alias }
         />
         <div className="begin-end-content">
           { setHTML(fields.body.processed) }
         </div>
       </ContentContainer>
       <div className="prev-next-buttons fixed-bottom text-center begin-button-margin">
-        <NavButton path="/how-to-use">Start</NavButton>
+        <NavButton path="/modo-de-uso">Start</NavButton>
       </div>
       <Footer className="fixed-bottom" />
     </div>

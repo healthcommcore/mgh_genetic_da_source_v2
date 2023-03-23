@@ -6,7 +6,6 @@ import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import { ucFirst } from "../helpers";
 
 const LanguageSwitcher = ({ englishPath, spanishPath }) => {
-  console.log({ englishPath, spanishPath });
   const languages = {
     english: englishPath,
     spanish: spanishPath
@@ -21,6 +20,7 @@ const LanguageSwitcher = ({ englishPath, spanishPath }) => {
             value={ lang }
             to={ languages[lang] }
           >
+            { console.log(languages[lang]) }
             { ucFirst(lang) }
           </Button>
         );

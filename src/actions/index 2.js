@@ -38,7 +38,7 @@ const initializeMenu = (drupalMenu) => {
   }
 }
 
-const setNewCurrent = (path) => { 
+const setNewCurrent = (path) => {
   return {
     type: `SET_NEW_CURRENT`,
     path

@@ -13,29 +13,28 @@ import { reduxForm } from "redux-form";
 import LoginForm from "../components/login-form";
 import { setUser } from "../actions";
 import { navigate, graphql } from "gatsby";
-//import { trackUser } from "gatsby-plugin-google-analytics";
+
+const mapStateToProps = (state) => {
+  return { user: state.user };
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (values) => {
-      if (Object.entries(values).length === 3) {
-        dispatch( setUser(values) );
-        //trackUser(values.userid);
-        
-        console.log( "data.english.path.alias")
-        navigate("/begin");
+      console.log("Is this thing working?");
+      if (Object.entries(values).length == 3) {
+        console.log(values);
+        //dispatch( setUser(values) );
+        //navigate("/welcome");
       }
     }
   }
 }
 
-
-
-let Index = ({ data, setUser }) => {
+let Login = ({ data, setUser }) => {
   const cancers = data.allTaxonomyTermCancerType.edges;
   const sites = data.allTaxonomyTermSites.edges;
   return (
-
     <LoginForm
       cancers={ cancers }
       sites={ sites }
@@ -58,9 +57,6 @@ export const query = graphql`
       edges {
         node {
           name
-          path {
-            alias
-          }
         }
       }
     }
@@ -69,8 +65,8 @@ export const query = graphql`
 
 // Use redux's connect method to map Login's form values to the action dispatcher using
 // mapDispatchToProps
-Index =  connect(null, mapDispatchToProps)(Index);
+Login =  connect(mapStateToProps, mapDispatchToProps)(Login);
 
 // Export the connected component, decorating it with reduxForm to connect the redux form
 // to redux
-export default reduxForm({ form: "login_page" })(Index);
+export default reduxForm({ form: "login_page" })(Login);

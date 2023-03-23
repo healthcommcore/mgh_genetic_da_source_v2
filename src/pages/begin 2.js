@@ -13,7 +13,7 @@ import { setHTML } from "../helpers";
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    initializeMenu: (drupalMenu ) => {
+    initializeMenu: (drupalMenu) => {
       dispatch( initializeMenu(drupalMenu) );
     },
     setLang: (lang) => {
@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Begin = ({ data, initializeMenu }) => {
-  const drupalMenu = useDrupalMenu("en");
+  const drupalMenu = useDrupalMenu();
   const fields = data.english;
   return (
     <div onLoad={ initializeMenu(drupalMenu) }>
@@ -31,7 +31,7 @@ const Begin = ({ data, initializeMenu }) => {
       <ContentContainer>
         <LanguageSwitcher
          englishPath={ data.english.path.alias }
-         spanishPath={ '/es-begin' }
+         spanishPath={ data.spanish.path.alias }
         />
         <div className="begin-end-content">
           { setHTML(fields.body.processed) }

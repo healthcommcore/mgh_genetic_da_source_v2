@@ -1,24 +1,42 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const useDrupalMenu = () => {
-  const { allMenuLinkContentMenuLinkContent } = useStaticQuery(
+const useDrupalMenu = (lang) => {
+ 
+  const data  = useStaticQuery(
     graphql`
       query {
-        allMenuLinkContentMenuLinkContent {
+        english:
+        allMenuLinkContentMenuLinkContent (filter: {menu_name: {eq: "main"}}) {
           edges {
-            node {
-              title
-              weight
-              link {
-                uri
-              }
+              node {
+                title
+                weight
+                link {
+                  uri
+                }
+            }
+          }
+        }
+        spanish:
+        allMenuLinkContentMenuLinkContent (filter: {menu_name: {eq: "spanish-menu"}}) {
+          edges {
+              node {
+                title
+                weight
+                link {
+                  uri
+                }
             }
           }
         }
       }
     `
   );
-  return allMenuLinkContentMenuLinkContent.edges;
+  if (lang =='es'){
+  return data.spanish.edges;}
+  else{
+    return data.english.edges;
+  }
 }
 
 export { useDrupalMenu };

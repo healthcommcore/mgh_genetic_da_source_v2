@@ -6,6 +6,7 @@ import MenuPathUpdater from "../containers/menu-path-updater";
 import Nav from "react-bootstrap/Nav";
 
 const MenuItem = ({ name, url, visited, current, setNewCurrent }) => {
+ 
   const path = urlify(name);
   const currPath = current.path.slice(1);
   const nodeId = getNodeId(url);
