@@ -21,6 +21,8 @@ const mapDispatchToProps = (dispatch) => {
       if (Object.entries(values).length === 3) {
         dispatch( setUser(values) );
         //trackUser(values.userid);
+        
+        console.log( "data.english.path.alias")
         navigate("/begin");
       }
     }
@@ -33,6 +35,7 @@ let Index = ({ data, setUser }) => {
   const cancers = data.allTaxonomyTermCancerType.edges;
   const sites = data.allTaxonomyTermSites.edges;
   return (
+
     <LoginForm
       cancers={ cancers }
       sites={ sites }

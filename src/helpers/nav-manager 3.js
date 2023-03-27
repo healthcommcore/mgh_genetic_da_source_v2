@@ -16,10 +16,17 @@ class NavManager {
     this.menuItems = reordered;
     this.navPaths = {
       current: this.menuItems[this.current],
-      previous: this.menuItems[this.current - 1] || false,
+      previous: this.menuItems[this.current -1 ] || false,
       next: this.menuItems[this.current + 1] || false
     };
-    this.menuItems.push(this.__setEnd());
+    console.log('---------------------debut end--------------')
+    console.log(this.menuItems)
+    console.log('---------------------end end--------------')
+    if ( this.menuItems[0]['title'] =="How to use"){
+    this.menuItems.push(this.__setEnd());}
+    else{
+      this.menuItems.push(this._es_setEnd());
+    }
   }
 
   getCurrentMarker = () => {
@@ -150,6 +157,14 @@ class NavManager {
       title: "End",
       weight: 999,
       path: "/end",
+      visited: false
+    }
+  }
+  _es_setEnd = () => {
+    return {
+      title: "End",
+      weight: 999,
+      path: "/es-end",
       visited: false
     }
   }

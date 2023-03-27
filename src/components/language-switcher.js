@@ -20,7 +20,6 @@ const LanguageSwitcher = ({ englishPath, spanishPath }) => {
             value={ lang }
             to={ languages[lang] }
           >
-            { console.log(languages[lang]) }
             { ucFirst(lang) }
           </Button>
         );

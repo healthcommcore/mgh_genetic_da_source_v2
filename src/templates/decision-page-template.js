@@ -13,6 +13,7 @@ import Footer from "../components/footer";
 
 
 const mapStateToProps = (state) => {
+  
   return {
     cancerType: state.user.cancerType.toLowerCase()
   }
@@ -20,19 +21,19 @@ const mapStateToProps = (state) => {
 
 const DecisionPageTemplate = ({ data, cancerType }) => {
   const node = data.nodeDecisionAidPage;
-
   return (
     <Layout className={ `decision-page ${ cancerType }` }>
       <Header />
       <NavContainer />
-{/*
-			<GoogleTranslate />
-*/}
+{
+  //console.log('--------------node---------')
+}
       <PageTitle>
         { node.title }
       </PageTitle>
-{/*
-*/}
+{
+//console.log(node)
+}
       <PageBody
         page={ node.path.alias }
         video={ node.relationships }
@@ -41,8 +42,8 @@ const DecisionPageTemplate = ({ data, cancerType }) => {
         complexContent={ node.relationships }
         outro={ node.field_outro_text }
       />
-      <NotesArea />
-      <ButtonsContainer isOrphan={ node.field_is_orphan_page } />
+      <NotesArea lang = {node.langcode}/>
+      <ButtonsContainer isOrphan={ node.field_is_orphan_page } lang={ node.langcode } />
       <Footer />
     </Layout>
   );
@@ -58,6 +59,7 @@ export const query = graphql`
       drupal_internal__nid: {eq: $drupal_internal__nid},
       langcode: {eq: $langcode} 
     ) {
+      langcode
       title
       field_is_orphan_page
       field_video_caption

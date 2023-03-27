@@ -29,7 +29,15 @@ const exists = (content) => {
 const ucFirst = (str) => {
   return str[0].toUpperCase() + str.slice(1);
 }
-
+const ucFirst_es = (str) => {
+  if (str =="next"){
+    str = "próximo"
+  }
+  if (str =="previous"){
+    str = "previous"
+  }
+  return str[0].toUpperCase() + str.slice(1);
+}
 const getContent = (obj, field1, field2 = false) => {
   return _hasContent(obj, field1, field2) && obj[field1];
 }
@@ -66,6 +74,7 @@ export {
   urlify, 
   exists, 
   ucFirst, 
+  ucFirst_es,
   abbreviate, 
   getContent, 
   toCamelCase 

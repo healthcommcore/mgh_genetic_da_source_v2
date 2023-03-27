@@ -6,6 +6,7 @@ import { setNotes } from "../actions";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
+  
   return {
     notes: state.user.notes
   }
@@ -19,12 +20,21 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const NotesArea = ({ notes, handleChange }) => {
-  const placeholder = "Write your questions or comments here. You will be able to review them later."
+const NotesArea = ({ notes, handleChange ,lang}) => {
+  let placeholder = "Write your questions or comments here. You will be able to review them later."
+  let title = 'Notes'
+ 
+  if (lang == 'es'){
+     placeholder = "Escriba sus preguntas o comentarios aquí. Podrás revisarlos más tarde."
+     title ="Notas"
+  }
+  
+  
+  
   return (
       <ContentContainer className="notes-margin">
         <Card>
-          <Card.Header bsPrefix="card-header notes-header">Notes</Card.Header>
+          <Card.Header bsPrefix="card-header notes-header">{title}</Card.Header>
           <Card.Body bsPrefix="card-body notes-body">
           <Form.Control 
             as="textarea" 

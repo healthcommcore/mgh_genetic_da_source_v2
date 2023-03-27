@@ -24,7 +24,6 @@ const mapDispatchToProps = (dispatch) => {
 
 const Begin = ({ data, initializeMenu }) => {
   const drupalMenu = useDrupalMenu('es');
-  //console.log( drupalMenu)
   const fields = data.spanish;
   data.spanish.path.alias = '/es-begin'
   return (
@@ -39,7 +38,8 @@ const Begin = ({ data, initializeMenu }) => {
           { setHTML(fields.body.processed) }
         </div>
       </ContentContainer>
-      <div className="prev-next-buttons fixed-bottom text-center begin-button-margin">
+      <div className="prev-next-buttons  text-center begin-button-margin "> {//fixed-bottom prev-next-buttons  text-center begin-button-margin"
+      }
         <NavButton path="/modo-de-uso">Start</NavButton>
       </div>
       <Footer className="fixed-bottom" />
