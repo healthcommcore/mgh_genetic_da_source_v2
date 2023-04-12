@@ -12,6 +12,9 @@ const mapStateToProps = (state) => {
 }
 
 const HideShowContentModule = ({ pieces, visibility }) => {
+  //console.log('--------hidden-------')
+  //console.log(pieces)
+  //console.log(visibility)
   const visOptions = Object.values(visibility);
   return (
     <Card bsPrefix="card test-choices content-module">
@@ -24,6 +27,7 @@ const HideShowContentModule = ({ pieces, visibility }) => {
         { pieces.map( (piece, i) => {
           const segments = piece.relationships.field_content_segment;
           const moduleLabel = getContent(piece.relationships, "field_it_s_your_choice_label");
+         
           return (
             <Fade key={i} in={ visibility[moduleLabel.name]}>
               <div className={ "mr-3 position-absolute " + (visibility[moduleLabel.name] ? "top-layer" : "bottom-layer") }>

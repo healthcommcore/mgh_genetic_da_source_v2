@@ -21,8 +21,6 @@ const mapStateToProps = (state) => {
 
 const DecisionPageTemplate = ({ data, cancerType }) => {
   const node = data.nodeDecisionAidPage;
-  console.log('--------------------')
-  console.log(node)
   return (
     <Layout className={ `decision-page ${ cancerType }` }>
       <Header />

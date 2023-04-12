@@ -40,7 +40,7 @@ const Begin = ({ data, initializeMenu }) => {
       </ContentContainer>
       <div className="prev-next-buttons  text-center begin-button-margin "> {//fixed-bottom prev-next-buttons  text-center begin-button-margin"
       }
-        <NavButton path="/modo-de-uso">Start</NavButton>
+        <NavButton path="/modo-de-uso">Empezar</NavButton>
       </div>
       <Footer className="fixed-bottom" />
     </div>

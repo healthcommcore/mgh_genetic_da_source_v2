@@ -36,8 +36,9 @@ const Begin = ({ data, initializeMenu }) => {
         <div className="begin-end-content">
           { setHTML(fields.body.processed) }
         </div>
+        
       </ContentContainer>
-      <div className="prev-next-buttons fixed-bottom text-center begin-button-margin">
+      <div className="prev-next-buttons  text-center begin-button-margin">
         <NavButton path="/how-to-use">Start</NavButton>
       </div>
       <Footer className="fixed-bottom" />

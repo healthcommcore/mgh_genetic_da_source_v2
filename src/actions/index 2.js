@@ -23,11 +23,6 @@ const setValue = (e, heading, leftLabel, rightLabel) => {
 }
 
 const setTestInput = (inputName, inputValue, inputType) => {
-  /*console.log("----------------------------------------------")
-  console.log(inputName)
-  console.log(inputValue)
-  console.log(inputType)
-  console.log('----------------------------------------------')*/
   return {
     type: `SET_TEST_INPUT`,
     inputName,

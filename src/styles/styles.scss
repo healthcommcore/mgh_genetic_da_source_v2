@@ -609,4 +609,11 @@ footer {
 a {
   color: $orange;
 }
+.btn:hover,
+.btn:focus,
+.btn:active {
+  color: #fff; /* set the text color to white on hover, focus, and active states */
+  background-color: $btn-bkgrd; /* set the background color to black on hover, focus, and active states */
+  border-color: #fff; /* set the border color to black on hover, focus, and active states */
+}
 
