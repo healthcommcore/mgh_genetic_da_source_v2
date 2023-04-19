@@ -13,24 +13,15 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setTestInput: (e) => {
-      console.log()
       dispatch( setTestInput(toCamelCase(e.target.name), e.target.value, e.target.type) );
     }
   }
 }
 
 const MultChoiceSegment = ({ content, savedInput, setTestInput }) => {
-  //console.log('----------------content-------------------------')
-  //console.log(content)
-  //console.log('------------------saveInput-----------------------')
-  //console.log(savedInput)
-  //console.log('-------------------setTestInput----------------------')
-  //console.log(setTestInput)
-  
+
   const type = content.field_can_choose_multiple ? "checkbox" : "radio";
   var name ="test-types";
-  //console.log('----------ssssss------------------')
-  //console.log(content)
   if (content.relationships.field_relevance != undefined){
   name = urlify(content.relationships.field_relevance.name);
   
@@ -41,7 +32,6 @@ const MultChoiceSegment = ({ content, savedInput, setTestInput }) => {
     if (content.field_option_name[0] == "Prueba A. Prueba del gen del cáncer pancreático" || content.field_option_name[0] == "Prueba A. Prueba del gen del cáncer de ovario" ){
     name = "test-types";
     }
-    //name = "not-ready-to-decide"
     
   }
   

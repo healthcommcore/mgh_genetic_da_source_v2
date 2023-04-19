@@ -5,6 +5,7 @@ import DAModal from "./da-modal";
 import ValuesContent from "./values-content";
 import VideoContent from "../components/video-content";
 import SummaryContent from "./summary-content";
+import SummaryContentES from "./summary-content-es";
 import AccordionContent from "../components/accordion-content";
 import ContentModule from "./content-module";
 import ContentContainer from "./content-container";
@@ -22,6 +23,31 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent, can
   const vidUrl = getContent(video, "field_video");
   const vidPlaceholder = getContent(video, "field_video_still_image");
   page = page.slice(1);
+  const summary =(type,complexContent)=>{
+    switch(type){
+      case 'summary' :
+        return(
+          <SummaryContent>
+              <ContentModule content={ complexContent } />
+            </SummaryContent>
+        )
+      case  'mi-resumen':
+        return(
+          <SummaryContentES>
+              <ContentModule content={ complexContent } />
+            </SummaryContentES>
+        )
+      default:
+        return(
+          <ContentModule content={ complexContent } />
+        )
+       
+
+    }
+    };
+      
+    
+
   return (
     <Container>
       <VideoContent 
@@ -34,12 +60,7 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent, can
         { exists(intro) ? <div className="intro-outro-content-margin">{ setHTML(intro.processed) } </div> : "" }
           <AccordionContent accordions={ accordions } />
         { 
-          page === "summary" ?
-            <SummaryContent>
-              <ContentModule content={ complexContent } />
-            </SummaryContent>
-          : 
-          <ContentModule content={ complexContent } />
+        summary(page,complexContent)
         }
       </ContentContainer>
       <ValuesContent list={ values } />

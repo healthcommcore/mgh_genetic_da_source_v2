@@ -22,7 +22,6 @@ const mapDispatchToProps = (dispatch) => {
         dispatch( setUser(values) );
         //trackUser(values.userid);
         
-        console.log( "data.english.path.alias")
         navigate("/begin");
       }
     }

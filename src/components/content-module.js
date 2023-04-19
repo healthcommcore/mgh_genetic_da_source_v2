@@ -13,10 +13,16 @@ const mapStateToProps = (state) => {
 }
 
 const ContentModule = ({ content, cancerType }) => {
+ 
   let modules = content.field_content_module;
   let hideShowContent = [];
-  console.log(content)
-  console.log('----------------------------------');
+  if(modules.length == 6 && (modules[0]["field_module_title"] == "Opciones de pruebas genéticas")){
+     
+     modules[0].relationships["field_cancer_type"]={'name': 'Ovarian'}
+     modules[1].relationships["field_cancer_type"]={'name': 'Pancreatic'}
+     modules[4].relationships["field_cancer_type"]={'name': 'Ovarian'}
+     modules[5].relationships["field_cancer_type"]={'name': 'Pancreatic'}
+  }
   if (modules.length > 0 && modules[0].field_module_title) {
  
     if (modules[1] && modules[1].relationships.hasOwnProperty("field_it_s_your_choice_label") &&
@@ -24,18 +30,15 @@ const ContentModule = ({ content, cancerType }) => {
       
       hideShowContent = modules.slice(1);
       modules = [JSON.parse(JSON.stringify(modules[0]))];
-      //console.log(hideShowContent)
     }
     
     else{
       if(modules[1] && modules[1].relationships.hasOwnProperty("field_it_s_your_choice_label") && modules[1]["field_module_title"] == 'Ahora veamos las opciones de pruebas'){
         
         hideShowContent = modules.slice(1);
-        //console.log(hideShowContent)
         modules = [JSON.parse(JSON.stringify(modules[0]))];
         
         hideShowContent.forEach((item, index) => {
-          //console.log(hideShowContent[index])
           
           //search for abrevation reduce 
           if(index == 0){hideShowContent[index].relationships["field_it_s_your_choice_label"] = {'name':"yes"}}

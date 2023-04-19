@@ -43,8 +43,7 @@ const getContent = (obj, field1, field2 = false) => {
 }
 
 const abbreviate = (test) => {
-  console.log('---------------------------------')
-  console.log(test.substring(0, 3))
+  
   let tes_t= test.substring(0, 3)
   if(tes_t[0] == 'S'){ return 'yes'}
   if(tes_t == 'No,'){return 'no'}

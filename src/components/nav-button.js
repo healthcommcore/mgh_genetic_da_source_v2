@@ -4,8 +4,6 @@ import { Link } from "gatsby";
 import Button from "react-bootstrap/Button";
 
 const NavButton = ({ path, className, onClick, children }) => {
-  //console.log('className');
-  //console.log("da rounded-pill " + className );
   return (
     <Button
       to={ path }

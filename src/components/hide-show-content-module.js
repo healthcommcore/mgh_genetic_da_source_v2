@@ -12,9 +12,6 @@ const mapStateToProps = (state) => {
 }
 
 const HideShowContentModule = ({ pieces, visibility }) => {
-  //console.log('--------hidden-------')
-  //console.log(pieces)
-  //console.log(visibility)
   const visOptions = Object.values(visibility);
   return (
     <Card bsPrefix="card test-choices content-module">

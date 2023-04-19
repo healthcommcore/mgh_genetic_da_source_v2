@@ -43,8 +43,6 @@ const user = (state = initialState, action) => {
       return Object.assign({}, state, { ...stateCopy });
     case `SET_TEST_INPUT`:
       const response = abbreviate(action.inputValue);
-      console.log('********handlevisibility***********&')
-          console.log(action)
       if (action.inputType === "checkbox") {
         handleCheckbox(stateCopy, action.inputName, action.inputValue);
       }
@@ -73,12 +71,6 @@ const handleCheckbox = (stateCopy, name, value) => {
 const handleVisibility = (stateCopy, response) => {
   const currVisibilities = stateCopy.test.visibility;
   Object.keys(currVisibilities).forEach( (key) => {
-    console.log('---------------')
-    console.log(stateCopy)
-    console.log('----------------------')
-    console.log(response)
-    console.log('----------------------')
-    console.log(key)
     if (key === response) {
       stateCopy.test.visibility[key] = true;
     }

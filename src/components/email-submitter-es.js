@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 
 
-class EmailSubmitter extends Component {
+class EmailSubmitterES extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -96,7 +96,7 @@ class EmailSubmitter extends Component {
           <div className="d-flex justify-content-around">      
               { this.props.type === "user" ? 
                 <Form.Control 
-                  placeholder="Enter email address"
+                  placeholder="Introducir la dirección de correo electrónico"
                   type="email"
                   onChange={ (e) => this.setEmail(e.target.value) }  
                 /> : "" 
@@ -112,10 +112,10 @@ class EmailSubmitter extends Component {
 }
 
 
-EmailSubmitter.propTypes = {
+EmailSubmitterES.propTypes = {
   type: PropTypes.string,
   data: PropTypes.object.isRequired,
   email: PropTypes.string
 }
 
-export default EmailSubmitter;
+export default EmailSubmitterES;

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Card from "react-bootstrap/Card";
 import SummaryValue from "./summary-value";
 import TestDecision from "./test-decision";
-import EmailSubmitter from "./email-submitter";
+import EmailSubmitterES from "./email-submitter-es";
 
 const mapStateToProps = (state) => {
   return {
@@ -11,14 +11,14 @@ const mapStateToProps = (state) => {
   }
 }
 
-const SummaryContent = ({ user, children }) => {
+const SummaryContentES = ({ user, children }) => {
   const test = user.test;
   const values = user.values;
   let showNextSteps = false;
   return (
     <>
-      <h2>What's important to you?</h2>
-      { values.length === 0 ? <p>No responses recorded</p> : "" }
+      <h2>¿Qué es importante para ti?</h2>
+      { values.length === 0 ? <p>No hay respuestas registradas</p> : "" }
       { values.map( (value, i) => {
         return value && (
           <SummaryValue
@@ -28,20 +28,20 @@ const SummaryContent = ({ user, children }) => {
             leftLabel={ value.leftLabel }
             rightLabel={ value.rightLabel }
             value={ value.value }
-            lang= {'eng'}
+            lang= {'es'}
           />
         );
       })}
-      <h2>Your decision</h2>
-      <p>Here's what you decided to do next:</p>
+      <h2>Su decisión</h2>
+      <p>Esto es lo que decidió hacer a continuación:</p>
       <TestDecision test={ test }>
         { (resp, field, value, path, testSelected) => {
           return (
             <>
               <div className="test-decision">
-                <p>Do you want genetic testing?<br />
+                <p>¿Quieres pruebas genéticas?<br />
                 <strong>{ resp }</strong></p>
-                <p>{ field }<br />
+                <p>{ 'tipo de prueba' }<br />
                 <strong>{ value }</strong></p>
               </div>
               { 
@@ -57,10 +57,10 @@ const SummaryContent = ({ user, children }) => {
       <Card bsPrefix="card my-5 summary-email-card">
         <Card.Body>
           <Card.Text as="div">
-            <p>Provide your email address to receive a copy of your responses and notes:</p>
-            <EmailSubmitter type="user" data={ user } notes={ user.notes }>
-              Email summary
-            </EmailSubmitter>
+            <p>Proporcione su dirección de correo electrónico para recibir una copia de sus respuestas y notas:</p>
+            <EmailSubmitterES type="user" data={ user } notes={ user.notes }>
+              Resumen de correo electrónico
+            </EmailSubmitterES>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -68,4 +68,4 @@ const SummaryContent = ({ user, children }) => {
   );
 }
 
-export default connect(mapStateToProps, null)(SummaryContent);
+export default connect(mapStateToProps, null)(SummaryContentES);

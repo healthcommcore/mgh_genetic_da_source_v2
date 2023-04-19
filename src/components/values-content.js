@@ -3,9 +3,20 @@ import ValuesScale from "./values-scale";
 import ValuesScaleExplanation from "./values-scale-explanation";
 
 const ValuesContent = ({ list }) => {
+ 
+  var lang = 'en'
+  if(list != null && list.length ==10){
+     if(list[0].field_l == "Muy difícil para mí en este momento"){
+      lang = 'es'
+      
+     }
+  }
+
   return list && (
     <>
-      <ValuesScaleExplanation classes="mb-4" />
+        
+      <ValuesScaleExplanation classes="mb-4" lang = {lang}/>
+      
       { list.map( (item, i) => {
           return (
             <ValuesScale
@@ -17,7 +28,8 @@ const ValuesContent = ({ list }) => {
             />
           );
         })}
-      <ValuesScaleExplanation />
+        
+      <ValuesScaleExplanation lang = {lang} />
     </>
   );
 }
