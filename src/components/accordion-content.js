@@ -8,12 +8,13 @@ import { setHTML } from "../helpers";
 const mapStateToProps = (state) => {
 
   return {
-    cancerType: state.user.cancerType
+    cancerType: state.user.cancerType,
+    lang : state.user.lang
   }
 }
 
-const AccordionContent = ({ accordions, className, cancerType }) => {
- 
+const AccordionContent = ({ accordions, className, cancerType ,lang}) => {
+  
   if(accordions != null && accordions.length === 5){
     if(accordions[0]["field_accordion_heading"] == 'Un gen es un fragmento pequeño de ADN (código genético), que cumple una función específica en el cuerpo.'){
       accordions[3]["relationships"]["field_cancer_type"]={name: 'Ovarian'}
@@ -34,6 +35,7 @@ const AccordionContent = ({ accordions, className, cancerType }) => {
               heading={ accordion.field_accordion_heading }
               subheading={ accordion.field_accordion_subheading }
               eventKey={ i + 1 }
+              lang = {lang}
             />
             <Accordion.Collapse eventKey={ i + 1 }>
               <Card.Body bsPrefix={ "card-body" + ( className ? " " + className : "") }>

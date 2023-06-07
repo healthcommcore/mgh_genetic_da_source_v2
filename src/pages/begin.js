@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { initializeMenu } from "../actions";
+import { initializeMenu, } from "../actions";
 import { graphql } from "gatsby";
 import NavButton from "../components/nav-button";
 import LargeHeader from "../components/large-header";
 import LanguageSwitcher from "../components/language-switcher";
 import Footer from "../components/footer";
 import ContentContainer from "../components/content-container";
-import { setLang } from "../actions";
+import { setLang,setLang_v1 } from "../actions";
 import { useDrupalMenu } from "../helpers/use-drupal-menu";
 import { setHTML } from "../helpers";
 
@@ -17,13 +17,14 @@ const mapDispatchToProps = (dispatch) => {
       dispatch( initializeMenu(drupalMenu) );
     },
     setLang: (lang) => {
-      dispatch( setLang(lang) );
+      dispatch( setLang_v1(lang) );
     }
   }
 }
 
-const Begin = ({ data, initializeMenu }) => {
+const Begin = ({ data, initializeMenu,setLang }) => {
   const drupalMenu = useDrupalMenu("en");
+  setLang('en')
   const fields = data.english;
   return (
     <div onLoad={ initializeMenu(drupalMenu) }>

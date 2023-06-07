@@ -25,8 +25,9 @@ const ButtonSegment = ({ content, setNewCurrent, triggerModal }) => {
     triggerModal();
   }
 
-  const path = content.relationships.field_button_destination && 
+  var path = content.relationships.field_button_destination && 
     content.relationships.field_button_destination.path.alias;
+  if(path ==='/es-stop'){path = "/stop"}
   return (
     <div className="button-segment">
       <Row>

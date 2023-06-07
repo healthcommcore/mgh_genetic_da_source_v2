@@ -6,8 +6,7 @@ import { exists } from "../helpers";
 const VideoContent = ({ videoArr, caption, placeholder, cancer }) => {
 
   const getVideo = (arr, cancer) => {
-    console.log("----------video uri-------------")
-    console.log(videoArr)
+    
     if (arr.length > 1) {
       
       const cancerVid = arr.filter( (vidObj) => {
@@ -42,8 +41,6 @@ const VideoContent = ({ videoArr, caption, placeholder, cancer }) => {
   }
 
   const video = getVideo(videoArr, cancer);
-  console.log("----------video link-------------")
-  console.log(process.env.DRUPAL_API_URL + video)
 
   return (video) && (
     <LeftMarginContainer>

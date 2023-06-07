@@ -53,7 +53,7 @@ const PrevNextButtons = ({ prevNext, isOrphan, advance, retreat, setNewCurrent,l
             <NavButton 
               onClick={ () => setNewCurrent(prevNext.current.path) }
               path={ prevNext.current.path }
-            >{ 'Back to "' + ucFirst(prevNext.current.title) + '"' }</NavButton>
+            >{ 'Volver a "' + ucFirst(prevNext.current.title) + '"' }</NavButton>
             :
             <>
               { 

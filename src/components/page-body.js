@@ -13,17 +13,25 @@ import { setHTML, exists, getContent } from "../helpers";
 
 const mapStateToProps = (state) => {
   return {
-    cancer: state.user.cancerType
+    cancer: state.user.cancerType,
+    lang: state.user.lang
   }
 }
 
-const PageBody = ({ page, video, videoCaption, intro, outro, complexContent, cancer }) => {
+const PageBody = ({ page, video, videoCaption, intro, outro, complexContent, cancer,lang }) => {
   const accordions = getContent(complexContent, "field_accordions", "field_accordion_heading");
   const values = getContent(complexContent, "field_values", "field_value_heading");
   const vidUrl = getContent(video, "field_video");
   const vidPlaceholder = getContent(video, "field_video_still_image");
   page = page.slice(1);
+  console.log("----------intro---------------")
+  console.log(intro)
+  console.log("----------complexContent---------------")
+  console.log(complexContent)
+  console.log("----------page---------------")
+  console.log(page)
   const summary =(type,complexContent)=>{
+    console.log("in switch")
     switch(type){
       case 'summary' :
         return(
@@ -67,7 +75,7 @@ const PageBody = ({ page, video, videoCaption, intro, outro, complexContent, can
       <ContentContainer>
       { exists(outro) ? <div className="intro-outro-content-margin">{ setHTML(outro.processed) } </div> : "" }
       </ContentContainer>
-      <DAModal title="Stop decision aid">
+      <DAModal title="Stop decision aid" lang={lang}>
         Are you sure you want to exit the decision aid?
       </DAModal>
     </Container>

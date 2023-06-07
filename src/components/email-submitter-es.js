@@ -96,7 +96,7 @@ class EmailSubmitterES extends Component {
           <div className="d-flex justify-content-around">      
               { this.props.type === "user" ? 
                 <Form.Control 
-                  placeholder="Introducir la dirección de correo electrónico"
+                  placeholder="Tienes que introducir su dirección de correo electrónico"
                   type="email"
                   onChange={ (e) => this.setEmail(e.target.value) }  
                 /> : "" 

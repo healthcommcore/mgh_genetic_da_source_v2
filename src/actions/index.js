@@ -90,6 +90,12 @@ const setLang = () => {
   }
 }
 
+const setLang_v1 = (lang) => {
+  return {
+    type: `SET_LANG`,
+    lang
+  }
+}
 export { 
   setUser, 
   setNotes,
@@ -102,5 +108,6 @@ export {
   setNewCurrent, 
   triggerModal,
   adminLogin,
-  logout
+  logout,
+  setLang_v1
 };

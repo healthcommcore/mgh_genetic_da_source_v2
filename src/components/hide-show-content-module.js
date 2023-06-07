@@ -7,19 +7,28 @@ import ContentModuleSegment from "./content-module-segment";
 
 const mapStateToProps = (state) => {
   return {
-    visibility: state.user.test.visibility
+    visibility: state.user.test.visibility,
+    lang :state.user.lang
   }
 }
 
-const HideShowContentModule = ({ pieces, visibility }) => {
+const HideShowContentModule = ({ pieces, visibility ,lang}) => {
   const visOptions = Object.values(visibility);
+  if(lang ==="en"){
+    var placeholder = "Please choose from the options above"
+  }
+  else{
+    var placeholder = "Elija entre las opciones anteriores"
+  }
+  console.log("placeholder")
+  console.log(placeholder)
   return (
     <Card bsPrefix="card test-choices content-module">
       <Card.Body>
         <p 
           className={ visOptions.includes(true) ? "invisible position-absolute" : "choose-placeholder mt-3 text-center" }
           >
-          Please choose from the options above
+          {placeholder}
         </p>
         { pieces.map( (piece, i) => {
           const segments = piece.relationships.field_content_segment;

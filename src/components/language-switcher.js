@@ -8,8 +8,10 @@ import { ucFirst } from "../helpers";
 const LanguageSwitcher = ({ englishPath, spanishPath }) => {
   const languages = {
     english: englishPath,
-    spanish: spanishPath
+    Español: spanishPath
   }
+  console.log("---------language-----------")
+  console.log(languages)
   return (
     <div className="language-switcher d-flex justify-content-end">
       { Object.keys(languages).map( (lang) => {

@@ -7,7 +7,7 @@ import LargeHeader from "../components/large-header";
 import LanguageSwitcher from "../components/language-switcher";
 import Footer from "../components/footer";
 import ContentContainer from "../components/content-container";
-import { setLang } from "../actions";
+import { setLang,setLang_v1 } from "../actions";
 import { useDrupalMenu } from "../helpers/use-drupal-menu";
 import { setHTML } from "../helpers";
 
@@ -17,13 +17,14 @@ const mapDispatchToProps = (dispatch) => {
       dispatch( initializeMenu(drupalMenu) );
     },
     setLang: (lang) => {
-      dispatch( setLang(lang) );
+      dispatch( setLang_v1(lang) );
     }
   }
 }
 
-const Begin = ({ data, initializeMenu }) => {
+const Begin = ({ data, initializeMenu ,setLang}) => {
   const drupalMenu = useDrupalMenu('es');
+  setLang('es')
   const fields = data.spanish;
   data.spanish.path.alias = '/es-begin'
   return (

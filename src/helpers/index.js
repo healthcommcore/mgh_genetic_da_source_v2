@@ -34,7 +34,7 @@ const ucFirst_es = (str) => {
     str = "próximo"
   }
   if (str =="previous"){
-    str = "previous"
+    str = "Anterior"
   }
   return str[0].toUpperCase() + str.slice(1);
 }
