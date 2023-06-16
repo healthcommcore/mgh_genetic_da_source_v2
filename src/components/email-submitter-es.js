@@ -23,7 +23,7 @@ class EmailSubmitterES extends Component {
   sendEmail = (data, email = false, notes = false) => {
     if (this.props.type === "user" && !email) {
       this.setState({ 
-        message: "You need to enter your email address",
+        message: "Tienes que introducir su dirección de correo electrónico",
         confirm: true
       });
       return;
@@ -61,14 +61,14 @@ class EmailSubmitterES extends Component {
       .then( (response) => {
         this.setState({ 
           confirm: true,
-          message: "Your email was sent"
+          message: "Su correo electrónico fue enviado"
         });
       })
       .catch( (err) => {
         console.error("Error:", err);
         this.setState({ 
           confirm: true,
-          message: "There was a problem and your email could not be sent"
+          message: "Hubo un problema y no se pudo enviar tu correo electrónico"
         });
       });
   /*
